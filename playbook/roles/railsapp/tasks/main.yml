@@ -1,0 +1,5 @@
+---
+
+- include: "deplibs.yml"
+- include: "bashrc_aliases.yml"
+# - include: "consul_service.yml"

@@ -1,0 +1,9 @@
+---
+
+packages:
+    - atop
+    - curl
+    - vim
+    - unzip
+    - python-pip
+    - jq

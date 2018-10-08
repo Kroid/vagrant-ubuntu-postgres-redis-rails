@@ -1,0 +1,6 @@
+---
+
+- include: "python.yml"
+- include: "packages.yml"
+# - include: "hostname.yml"
+- include: "locale.yml"

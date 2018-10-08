@@ -1,0 +1,37 @@
+dependencies:
+  - python-pycurl
+  - postfix
+  - libpq-dev
+  - nodejs
+  - imagemagick
+  - graphicsmagick
+  - libmagickwand-dev
+  - postgresql-client-common
+  - libmagick++-dev
+  - wkhtmltopdf
+
+ruby_dependencies:
+  - ca-certificates
+  - autoconf
+  - automake
+  - bison
+  - build-essential
+  - curl
+  - git-core
+  - libreadline6
+  - libreadline6-dev
+  - libsqlite3-dev
+  - libssl-dev
+  - libxml2-dev
+  - libxslt1-dev
+  - libyaml-dev
+  - openssl
+  - pkg-config
+  - zlib1g
+  - zlib1g-dev
+
+ruby_gems:
+  - bundler
+  - json
+  - facter
+  - foreman

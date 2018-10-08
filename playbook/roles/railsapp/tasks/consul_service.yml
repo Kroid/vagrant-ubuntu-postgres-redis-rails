@@ -1,0 +1,17 @@
+---
+
+- name: Create consul_app/config directory
+  file:
+    path: "{{ home_dir }}/consul_app/config"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    force: no
+
+- name: Install railsapp consul service
+  template:
+    src: "consul_app/config/railsapp.json.j2"
+    dest: "{{ home_dir }}/consul_app/config/railsapp.json"
+  notify:
+    - reload consul
+  become: true

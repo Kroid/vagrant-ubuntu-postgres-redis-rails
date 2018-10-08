@@ -1,0 +1,14 @@
+{
+  "service": {
+    "name": "{{ consul_service_name }}",
+    "port": {{ consul_service_port }},
+    "tags": [
+      "rails",
+      "microservice"
+    ]{#,
+    "check": {
+      "args": ["curl", "http://localhost:3000/api/{{ consul_service_name }}/v1/ping.json"],
+      "interval": "10s"
+    }#}
+  }
+}

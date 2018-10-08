@@ -1,0 +1,8 @@
+---
+
+
+- name: bashrc alias be
+  lineinfile:
+    line: 'alias be="bundle exec"'
+    dest: "{{ home_dir }}/.bashrc"
+    state: present
