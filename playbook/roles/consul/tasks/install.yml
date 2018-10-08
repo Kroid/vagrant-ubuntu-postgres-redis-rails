@@ -1,0 +1,53 @@
+---
+
+- name: Install dependecies and libs for consul
+  become: true
+  action: apt pkg={{item}} state=installed
+  with_items:
+    - curl
+    - unzip
+
+- name: Download consul_1.0.7_linux_amd64.zip
+  get_url:
+    url: https://releases.hashicorp.com/consul/1.0.7/consul_1.0.7_linux_amd64.zip
+    dest: '{{ home_dir }}'
+    mode: 0440
+
+- name: Extract consul_1.0.7_linux_amd64.zip
+  unarchive:
+    src: '{{ home_dir }}/consul_1.0.7_linux_amd64.zip'
+    dest: '{{ home_dir }}/'
+    remote_src: yes
+
+- name: Move consul to /usr/local/bin/
+  become: true
+  command: "mv  {{ home_dir }}/consul /usr/local/bin/consul"
+
+- name: Remove consul_1.0.7_linux_amd64.zip
+  file:
+    state: absent
+    path: "{{ home_dir }}/consul_1.0.7_linux_amd64.zip"
+
+# - name: Create consul_app/config directory
+#   file:
+#     path: "{{ home_dir }}/consul_app/config/"
+#     state: directory
+#     owner: "{{ ansible_user }}"
+#     group: "{{ ansible_user }}"
+#     force: no
+#
+# - name: Create consul_app/data directory
+#   file:
+#     path: "{{ home_dir }}/consul_app/data/"
+#     state: directory
+#     owner: "{{ ansible_user }}"
+#     group: "{{ ansible_user }}"
+#     force: no
+#
+# - name: Create consul_app/log directory
+#   file:
+#     path: "{{ home_dir }}/consul_app/log/"
+#     state: directory
+#     owner: "{{ ansible_user }}"
+#     group: "{{ ansible_user }}"
+#     force: no

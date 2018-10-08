@@ -1,0 +1,19 @@
+---
+
+- name: install supervisor
+  action: apt pkg=supervisor state=installed
+  become: true
+
+- name: Create /etc/supervisor/conf.d/ dir
+  file:
+    name: /etc/supervisor/conf.d/
+    state: directory
+  become: yes
+
+- name: Install consul supervisor conf
+  template:
+    src: "etc/supervisor/conf.d/consul.conf.j2"
+    dest: "/etc/supervisor/conf.d/consul.conf"
+  notify:
+    - restart supervisor
+  become: true

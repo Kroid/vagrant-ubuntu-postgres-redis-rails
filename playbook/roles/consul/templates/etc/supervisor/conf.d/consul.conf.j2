@@ -1,0 +1,9 @@
+[program:consul]
+directory={{ home_dir }}
+command=/usr/local/bin/consul agent -server -bind={{ consul_bind_address }} -bootstrap-expect={{ consul_bootstrap_expect }} -enable-script-checks=1 -data-dir={{ home_dir }}/consul_app/data -config-dir={{ home_dir }}/consul_app/config
+user={{ ansible_user }}
+autostart=true
+autorestart=true
+stopsignal=QUIT
+stdout_logfile={{ home_dir }}/consul_app/log/consul.stdout.log
+stderr_logfile={{ home_dir }}/consul_app/log/consul.stderr.log

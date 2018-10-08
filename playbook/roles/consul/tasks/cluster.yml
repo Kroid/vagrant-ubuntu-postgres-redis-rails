@@ -1,0 +1,5 @@
+---
+
+- name: join consul to another server
+  command: "consul join {{ consul_bootstrap_node_address }}"
+  when: "{{ consul_is_join is defined }}"
