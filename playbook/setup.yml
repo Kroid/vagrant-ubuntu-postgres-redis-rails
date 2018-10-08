@@ -1,39 +1,39 @@
 ---
-#
-# - hosts: all
-#   gather_facts: False
-#   remote_user: root
-#   roles:
-#     - common
-#
-# - hosts: all
-#   remote_user: root
-#   become: true
-#   roles:
-#     - geerlingguy.nodejs
-#     - geerlingguy.ruby
-#     - DavidWittman.redis
-#     # - consul
-#     - railsapp
-#   vars:
-#     home_dir: /home/vagrant
-#
-# - hosts: all
-#   remote_user: root
-#   become: true
-#   roles:
-#     - ANXS.postgresql
-#     # - consul
-#   vars:
-#     postgresql_version: 9.6
 
-# - hosts: all
-#   remote_user: root
-#   become: true
-#   roles:
-#     - consul
-#   vars:
-#     home_dir: /home/vagrant
+- hosts: all
+  gather_facts: False
+  remote_user: root
+  roles:
+    - common
+
+- hosts: all
+  remote_user: root
+  become: true
+  roles:
+    - geerlingguy.nodejs
+    - geerlingguy.ruby
+    - DavidWittman.redis
+    # - consul
+    - railsapp
+  vars:
+    home_dir: /home/vagrant
+
+- hosts: all
+  remote_user: root
+  become: true
+  roles:
+    - ANXS.postgresql
+    # - consul
+  vars:
+    postgresql_version: 9.6
+
+- hosts: all
+  remote_user: root
+  become: true
+  roles:
+    - consul
+  vars:
+    home_dir: /home/vagrant
 
 
 - hosts: all
